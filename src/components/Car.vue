@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style>
-.cars {
-  outline: 1px solid black;
+.car {
+  outline: 1px solid #46b98a;
 }
 </style>

@@ -12,6 +12,7 @@ let _api = axios.create({
 export default new Vuex.Store({
   state: {
     cars: [],
+    houses: [],
     activeCar: {}
   },
   mutations: {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     setActiveCar(state, car) {
       state.activeCar = car
+    },
+    setHouses(state, houses) {
+      state.houses = houses
     }
   },
   actions: {
@@ -57,8 +61,14 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-    getHouses({ commit, dispatch }) {
-
+    async getHouses({ commit, dispatch }) {
+      try {
+        let res = await _api.get('houses')
+        console.log(res.data.data)
+        commit('setHouses', res.data.data)
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
   modules: {
