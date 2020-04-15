@@ -31,6 +31,12 @@ const routes = [
     component: () => import(/*webpackChunkName: "houses"*/ '../pages/Houses.vue')
   },
   {
+    path: '/house/:houseId',
+    name: 'HouseDetails',
+    // @ts-ignore
+    component: () => import(/*webpackChunkName: "house-details"*/ '../pages/HouseDetails.vue')
+  },
+  {
     path: '/jobs',
     name: 'Jobs',
     // @ts-ignore

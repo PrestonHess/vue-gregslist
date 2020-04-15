@@ -1,8 +1,7 @@
 <template>
-  <div class="house border col-3">
+  <div class="house border col-3" @click="selectHouse()">
     <img :src="houseData.imgUrl" class="img-fluid p-1" alt="">
-    <h4>Price : {{houseData.price}}</h4>
-    <p>Bedrooms : {{houseData.bedrooms}} | Bathrooms : {{houseData.bathrooms}}</p>
+    <h4>Price : ${{houseData.price}}</h4>
   </div>
 </template>
 
@@ -15,7 +14,15 @@ export default {
     return {}
   },
   computed:{},
-  methods:{},
+  methods:{
+    selectHouse() {
+      this.$store.commit('setActiveHouse', {})
+      this.$router.push({
+        name: 'HouseDetails',
+        params: { houseId: this.houseData._id }
+      })
+    }
+  },
   components:{}
 }
 </script>
